@@ -106,6 +106,7 @@ class FBUtils {
       $response = curl_exec($ch);
       // Once we get a response, we then parse it to extract the access token
       parse_str($response, $params);
+
       $token = $params['access_token'];
       return $token;
     // In the event that the two states do not match, we return false to signify
