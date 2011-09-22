@@ -33,7 +33,8 @@ require_once('utils.php');
  ****************************************************************************/
 
 // Log the user in, and get their access token
-$token = FBUtils::login(AppInfo::getHome());
+// $token = FBUtils::login(AppInfo::getHome());
+$token = 'AAADx53PaRKQBALRXW50ykbKywbGkN9Jgvpw7UfT3BVhBuNfA5ovBX1iWXcR4ERLkYNZB7cxiXMz5s5IexZAL8un98AV8Cog3AuhzQ8TQZDZD';
 if ($token) {
 
   echo "<!-- $token -->";
@@ -42,6 +43,9 @@ if ($token) {
   $basic = FBUtils::fetchFromFBGraph("me?access_token=$token");
   $my_id = assertNumeric(idx($basic, 'id'));
 
+  $send_url = "https://www.facebook.com/dialog/send?redirect_uri=$redirect_url&display=popup&app_id=$app_id&link=$encoded_home";
+  $post_to_wall_url = "https://www.facebook.com/dialog/feed?redirect_uri=$redirect_url&display=popup&app_id=$app_id";
+  $action_url = "action.php?token=" . $token;
 } else {
   // Stop running if we did not get a valid response from logging in
   exit("Invalid credentials");
@@ -121,7 +125,11 @@ if ($token) {
         <div id="share-app">
           <p>Share this app:</p>
           <ul>
-            <li><fb:add-to-timeline show-faces="true"></fb:add-to-timeline></li>
+	        <li>
+		      	<a href="#" class="facebook-button" onclick="popup('<?php echo $action_url ?>', 'Action!', 580, 400);">
+	                <span class="plus">Action!</span>
+	              </a>
+		    </li>
             <li>
               <a href="#" class="facebook-button" onclick="popup('<?php echo $post_to_wall_url ?>', 'Post to Wall', 580, 400);">
                 <span class="plus">Post to Wall</span>
