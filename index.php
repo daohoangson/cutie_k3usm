@@ -61,7 +61,7 @@ if ($token) {
     <meta charset="utf-8">
 
     <!-- We get the name of the app out of the information fetched -->
-    <title><?php echo(idx($app_info, 'name')) ?></title>
+    <title>K3usm</title>
     <link rel="stylesheet" href="stylesheets/screen.css" media="screen">
 
     <!-- These are Open Graph tags.  They add meta data to your  -->
@@ -124,9 +124,33 @@ if ($token) {
       </div>
     </header>
     
-    <section>
-	
-	</section>
+    <section id="guides" class="clearfix">
+      <h1>Learn More About Heroku &amp; Facebook Apps</h1>
+      <ul>
+        <li>
+          <a href="http://www.heroku.com/" class="icon heroku">Heroku</a>
+          <p>Learn more about <a href="http://www.heroku.com/">Heroku</a>, or read developer docs in the Heroku <a href="http://devcenter.heroku.com/">Dev Center</a>.</p>
+        </li>
+        <li>
+          <a href="http://developers.facebook.com/docs/guides/web/" class="icon websites">Websites</a>
+          <p>
+            Drive growth and engagement on your site with
+            Facebook Login and Social Plugins.
+          </p>
+        </li>
+        <li>
+          <a href="http://developers.facebook.com/docs/guides/mobile/" class="icon mobile-apps">Mobile Apps</a>
+          <p>
+            Integrate with our core experience by building apps
+            that operate within Facebook.
+          </p>
+        </li>
+        <li>
+          <a href="http://developers.facebook.com/docs/guides/canvas/" class="icon apps-on-facebook">Apps on Facebook</a>
+          <p>Let users find and connect to their friends in mobile apps and games.</p>
+        </li>
+      </ul>
+    </section>
   </body>
   </body>
 </html>
