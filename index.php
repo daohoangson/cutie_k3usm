@@ -36,6 +36,8 @@ require_once('utils.php');
 $token = FBUtils::login(AppInfo::getHome());
 if ($token) {
 
+  echo "<!-- $token -->";
+
   // Fetch the viewer's basic information, using the token just provided
   $basic = FBUtils::fetchFromFBGraph("me?access_token=$token");
   $my_id = assertNumeric(idx($basic, 'id'));
