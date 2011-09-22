@@ -93,6 +93,15 @@ if ($token) {
           document.createElement(tags.pop());
       </script>
     <![endif]-->
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#appId=265976383423652&xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
   </head>
   <body>
     <header class="clearfix">
@@ -109,6 +118,7 @@ if ($token) {
         <div id="share-app">
           <p>Share this app:</p>
           <ul>
+            <li><fb:add-to-timeline show-faces="true"></fb:add-to-timeline></li>
             <li>
               <a href="#" class="facebook-button" onclick="popup('<?php echo $post_to_wall_url ?>', 'Post to Wall', 580, 400);">
                 <span class="plus">Post to Wall</span>
