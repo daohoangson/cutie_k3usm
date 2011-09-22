@@ -104,6 +104,7 @@ if ($token) {
 	</script>
   </head>
   <body>
+	<div id="fb-root"></div>
     <header class="clearfix">
       <!-- By passing a valid access token here, we are able to display -->
       <!-- the user's images without having to download or prepare -->
