@@ -1,5 +1,4 @@
 <?php
-die('nothing to see here');
 // Copyright 2004-present Facebook. All Rights Reserved.
 
 // Enforce https on production
