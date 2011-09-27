@@ -23,4 +23,4 @@ $result = $facebook->api('/me/kthreeusm:kiss', 'post', array(
 	'profile' => $app->getFileUrl('profile.php?fb_uid=' . $fb_uid),
 ));
 
-var_dump($result);
+echo json_encode($result);
