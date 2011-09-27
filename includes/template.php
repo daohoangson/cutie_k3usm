@@ -17,6 +17,7 @@ class Template {
 	
 	public function render() {
 		extract($this->_params);
+		$app = App::getInstance();
 		
 		ob_start();
 		include($this->_path);

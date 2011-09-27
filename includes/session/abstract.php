@@ -35,6 +35,13 @@ abstract class Session_Abstract {
 		$this->set('password_hash', $this->_hashPassword($userInfo));
 	}
 	
+	public function setupFacebook(API_Facebook $facebook) {
+		$accessToken = $this->getUserInfo('fb_access_token');
+		if (!empty($accessToken)) {
+			$facebook->setAccessToken($accessToken);
+		}
+	}
+	
 	protected function _autoLogin() {
 		if ($this->get('username') !== false AND $this->get('password_hash') !== false) {
 			$userInfo = Model_User::findUserByUsername($this->get('username'));
