@@ -14,6 +14,7 @@ $session->setupFacebook($facebook);
 $result = $facebook->api('/me/friends');
 
 if (!empty($result['data'])) {
+	usort($result['data'], create_function('$a, $b', 'return $a["name"] > $b["name"];'));
 	$tmp = array('friends' => $result['data']);
 } else {
 	$tmp = array('friends' => array());
