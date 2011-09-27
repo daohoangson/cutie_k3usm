@@ -2,8 +2,10 @@
 
 require(dirname(__FILE__) . '/../../facebook-sdk/src/facebook.php');
 
-BaseFacebook::$CURL_OPTS[CURLOPT_PROXY] = '127.0.0.1:5011';
-BaseFacebook::$CURL_OPTS[CURLOPT_PROXYTYPE] = CURLPROXY_SOCKS5;
+if (getenv('RUNNING_IN_SONDH_MACHINE')) {
+	BaseFacebook::$CURL_OPTS[CURLOPT_PROXY] = '127.0.0.1:5011';
+	BaseFacebook::$CURL_OPTS[CURLOPT_PROXYTYPE] = CURLPROXY_SOCKS5;	
+}
 
 class Api_Facebook extends Facebook {
 	public function setAccessToken($accessToken) {
