@@ -11,8 +11,12 @@ $session->rememberUser($user);
 $facebook = Api_Facebook::getInstance();
 $session->setupFacebook($facebook);
 
-$result = $facebook->api('/me/kthreeusm:kiss', 'post', array(
-	'profile' => $app->getFileUrl('profile.php?fb_uid=lotterite'),
-));
+$result = $facebook->api('/me/friends');
 
-var_dump($result);
+if (!empty($result['data'])) {
+	$tmp = array('friends' => $result['data']);
+} else {
+	$tmp = array('friends' => array());
+}
+
+echo json_encode($tmp);
