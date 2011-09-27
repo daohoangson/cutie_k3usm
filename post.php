@@ -11,6 +11,9 @@ $session->rememberUser($user);
 $facebook = Api_Facebook::getInstance();
 $session->setupFacebook($facebook);
 
-$result = $facebook->api('/me/kthreeusm:kiss?profile=' . $app->getFileUrl('profile.php?fb_uid=lotterite'), 'post');
+$result = $facebook->api('/me/kthreeusm:kiss', 'post', array(
+	'profile' => $app->getFileUrl('profile.php?fb_uid=lotterite'),
+	'message' => 'Testing blah blah',
+));
 
 var_dump($result);
